@@ -1,17 +1,15 @@
-[project]
+[tool.poetry]
 name = "shopping"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Michael",email = "56340359+SynysterRev@users.noreply.github.com"}
-]
+authors = ["Michael <56340359+SynysterRev@users.noreply.github.com>"]
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "scikit-learn (>=1.6.1,<2.0.0)",
-    "pandas (>=2.2.3,<3.0.0)"
-]
 
+[tool.poetry.dependencies]
+python = ">=3.12"
+scikit-learn = ">=1.6.1,<2.0.0"
+pandas = ">=2.2.3,<3.0.0"
+check50 = "^3.3.11"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

@@ -21,6 +21,7 @@ month_dict = {
     "Dec": 11
 }
 
+
 def main():
     # Check command-line arguments
     if len(sys.argv) != 2:
@@ -98,7 +99,6 @@ def load_data(filename):
         sys.exit("File not found")
 
 
-
 def train_model(evidence, labels):
     """
     Given a list of evidence lists and a list of labels, return a
@@ -124,10 +124,12 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
-    sensitivity = sum(1 for label, prediction in zip(labels, predictions)  if label ==
-                      1 and prediction == 1) / (len(labels))
+    positive = sum(1 for label in labels if label == 1)
+    negative = len(labels) - positive
+    sensitivity = sum(1 for label, prediction in zip(labels, predictions) if label ==
+                      1 and prediction == 1) / positive
     specificity = sum(1 for label, prediction in zip(labels, predictions) if label ==
-                      0 and prediction == 0) / (len(labels))
+                      0 and prediction == 0) / negative
     return sensitivity, specificity
 
 
